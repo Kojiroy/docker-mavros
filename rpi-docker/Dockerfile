@@ -1,4 +1,4 @@
-FROM ros:kinetic-ros-base:linux/arm64/v8
+FROM ros:kinetic-ros-base
 LABEL maintainer Kyle Usbeck
 
 # Trick to get apt-get to not prompt for timezone in tzdata
@@ -22,9 +22,19 @@ COPY apm_config.yaml /opt/ros/kinetic/share/mavros/launch/apm_config.yaml
 EXPOSE 5760
 
 # Envs
-ENV FCUURL=tcp://localhost:5760
+ENV FCUURL=/dev/ttyACM0:921600
+ENV GCSURL=udp://@192.168.1.65:14550
 
 # Finally the command
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
-ENTRYPOINT /entrypoint.sh ${FCUURL}
+ENTRYPOINT /entrypoint.sh ${FCUURL} ${GCSURL}
+
+#Install extra packages for mavros development
+RUN apt-get install -y ros-kinetic-catkin python-catkin-tools python-rosinstall-generator 
+
+# Create new user and ros workspace
+RUN useradd -ms /bin/bash ubuntu && usermod -aG sudo ubuntu && echo "ubuntu:harvino1" | sudo chpasswd
+USER ubuntu
+WORKDIR /home/ubuntu
+RUN echo 'source /opt/ros/kinetic/setup.bash' >> /home/ubuntu/.bashrc
