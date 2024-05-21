@@ -1,0 +1,1 @@
+/home/ubuntu/catkin_ws/devel/.private/cinema_pkg/share/cinema_pkg/cmake/cinema_pkgConfig-version.cmake
