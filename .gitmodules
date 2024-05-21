@@ -1,3 +1,6 @@
 [submodule "rpi-docker/mavros"]
 	path = rpi-docker/mavros
 	url = git@github.com:mavlink/mavros.git
+[submodule "rpi-docker/catkin_ws/src/mavros"]
+	path = rpi-docker/catkin_ws/src/mavros
+	url = git@github.com:mavlink/mavros.git
