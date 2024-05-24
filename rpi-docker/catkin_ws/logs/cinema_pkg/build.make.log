@@ -1,4 +1,2 @@
-[35m[1mScanning dependencies of target viconTranslator[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/viconTranslator.dir/src/vicon_translator.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /home/ubuntu/catkin_ws/devel/.private/cinema_pkg/lib/cinema_pkg/viconTranslator[0m
+[ 50%] Built target viconTranslatorWDelay
 [100%] Built target viconTranslator

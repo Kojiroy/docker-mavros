@@ -37,9 +37,11 @@ RUN wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ub
 wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt && bash ubuntu.sh --no-nuttx --no-sim-tools
 RUN apt-get install -y gcc-8-arm-linux-gnueabihf g++-8-arm-linux-gnueabihf && update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-gcc-8 100 --slave /usr/bin/arm-linux-gnueabihf-g++ arm-linux-gnueabihf-g++ /usr/bin/arm-linux-gnueabihf-g++-8 && update-alternatives --config arm-linux-gnueabihf-gcc 
 
-RUN apt install -y tmux
+RUN rm -rf ubuntu.sh install_geographiclib_datasets.sh requirements.txt
+RUN apt install -y tmux git
 # Create new user and ros workspace
 RUN useradd -ms /bin/bash ubuntu && usermod -aG sudo ubuntu && echo "ubuntu:harvino1" | sudo chpasswd
 USER ubuntu
 WORKDIR /home/ubuntu
-RUN echo 'source /opt/ros/noetic/setup.bash' >> /home/ubuntu/.bashrc
+RUN echo 'source /opt/ros/noetic/setup.bash' >> /home/ubuntu/.bashrc && echo 'export ROS_MASTER_URI=http://192.168.1.220:11311' >> /home/ubuntu/.bashrc && echo 'export ROS_IP=192.168.168.1.217' >> /home/ubuntu/.bashrc && echo 'export ROS_HOSTNAME=192.168.1.217' >> /home/ubuntu/.bashrc
+

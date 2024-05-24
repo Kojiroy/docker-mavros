@@ -311,6 +311,19 @@ geometry_msgs_generate_messages_cpp/fast:
 .PHONY : geometry_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named viconTranslatorWDelay
+
+# Build rule for target.
+viconTranslatorWDelay: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 viconTranslatorWDelay
+.PHONY : viconTranslatorWDelay
+
+# fast build rule for target.
+viconTranslatorWDelay/fast:
+	$(MAKE) -f CMakeFiles/viconTranslatorWDelay.dir/build.make CMakeFiles/viconTranslatorWDelay.dir/build
+.PHONY : viconTranslatorWDelay/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_py
 
 # Build rule for target.
@@ -714,6 +727,33 @@ src/vicon_translator.cpp.s:
 	$(MAKE) -f CMakeFiles/viconTranslator.dir/build.make CMakeFiles/viconTranslator.dir/src/vicon_translator.cpp.s
 .PHONY : src/vicon_translator.cpp.s
 
+src/vicon_translator_w_delay.o: src/vicon_translator_w_delay.cpp.o
+
+.PHONY : src/vicon_translator_w_delay.o
+
+# target to build an object file
+src/vicon_translator_w_delay.cpp.o:
+	$(MAKE) -f CMakeFiles/viconTranslatorWDelay.dir/build.make CMakeFiles/viconTranslatorWDelay.dir/src/vicon_translator_w_delay.cpp.o
+.PHONY : src/vicon_translator_w_delay.cpp.o
+
+src/vicon_translator_w_delay.i: src/vicon_translator_w_delay.cpp.i
+
+.PHONY : src/vicon_translator_w_delay.i
+
+# target to preprocess a source file
+src/vicon_translator_w_delay.cpp.i:
+	$(MAKE) -f CMakeFiles/viconTranslatorWDelay.dir/build.make CMakeFiles/viconTranslatorWDelay.dir/src/vicon_translator_w_delay.cpp.i
+.PHONY : src/vicon_translator_w_delay.cpp.i
+
+src/vicon_translator_w_delay.s: src/vicon_translator_w_delay.cpp.s
+
+.PHONY : src/vicon_translator_w_delay.s
+
+# target to generate assembly for a file
+src/vicon_translator_w_delay.cpp.s:
+	$(MAKE) -f CMakeFiles/viconTranslatorWDelay.dir/build.make CMakeFiles/viconTranslatorWDelay.dir/src/vicon_translator_w_delay.cpp.s
+.PHONY : src/vicon_translator_w_delay.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -736,6 +776,7 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... viconTranslatorWDelay"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... doxygen"
 	@echo "... roscpp_generate_messages_lisp"
@@ -770,6 +811,9 @@ help:
 	@echo "... src/vicon_translator.o"
 	@echo "... src/vicon_translator.i"
 	@echo "... src/vicon_translator.s"
+	@echo "... src/vicon_translator_w_delay.o"
+	@echo "... src/vicon_translator_w_delay.i"
+	@echo "... src/vicon_translator_w_delay.s"
 .PHONY : help
 
 

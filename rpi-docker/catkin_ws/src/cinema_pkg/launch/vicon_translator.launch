@@ -1,0 +1,4 @@
+<launch>
+	<arg name="translator_start_delay" default="5.0"/>
+	<node pkg="cinema_pkg" type="viconTranslator" name="viconTranslator" launch-prefix="bash -c 'sleep $(arg translator_start_delay); $0 $@' "/>
+</launch>
